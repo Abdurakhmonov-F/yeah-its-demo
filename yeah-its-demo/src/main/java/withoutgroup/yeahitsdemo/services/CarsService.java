@@ -1,6 +1,8 @@
 package withoutgroup.yeahitsdemo.services;
 
 import com.mongodb.client.result.DeleteResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import withoutgroup.yeahitsdemo.model.Cars;
@@ -10,6 +12,9 @@ import java.util.List;
 
 @Service
 public class CarsService {
+
+
+
     @Autowired
     CarsRepository carsRepository;
     //create
@@ -32,6 +37,7 @@ public class CarsService {
     public String deleteCar(Cars cars){
         DeleteResult deleteResult = carsRepository.deleteCar(cars);
         if (deleteResult == null){
+
             return "there is no any car";
         }
 
